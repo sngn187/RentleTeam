@@ -1844,7 +1844,7 @@ button:hover {
 }
 /* this is the red image */
 .cuadro-l__front {
-  background-image: url("./img/nang.jpg");
+  background-image: url("img/nang.jpg");
   background-size: cover;
   background-color: #000000;
   border: 1vw solid #000000;
@@ -1869,7 +1869,7 @@ button:hover {
 }
 
 .cuadro-r__front {
-  background-image: url("./img/team.jpg");
+  background-image: url("img/team.jpg");
   background-color: #0f1110;
   border: 0.5vw solid #0f1110;
 }
