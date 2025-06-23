@@ -94,6 +94,7 @@ html {
 
 .header h3 i {
   background-image: linear-gradient(to right, #ff6600, #ee00ff);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
