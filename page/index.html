@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/layout.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <h3>My Room <i class="fa-solid fa-sort"></i></h3>
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="#"
+                class="nav-link"
+                onclick="loadPage('Dashbord.html', this)"
+                >Dashboard <i class="fa-solid fa-chart-line"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="nav-link"
+                onclick="loadPage('Customer.html', this)"
+                >Customer <i class="fa-solid fa-users-gear"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="nav-link"
+                onclick="loadPage('Recipt.html', this)"
+                >Recipt <i class="fa-solid fa-file-invoice-dollar"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" class="nav-link" onclick="loadPage('Room.html', this)"
+                >Room <i class="fa-solid fa-house-chimney-user"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="main">
+        <header class="header" id="header">
+          <h3>
+            <i class="fa-solid fa-heart-circle-bolt"></i>
+            <span id="header_title"></span>
+          </h3>
+          <div class="header-actions">
+            <h5>UserName</h5>
+              <button id="logout" class="btn btn-logout">
+                <i class="fa-solid fa-user"></i>
+              </button>
+          </div>
+        </header>
+        <main id="content">
+          <!-- Content will be loaded here -->
+          <p>Welcome to the dashboard!</p>
+        </main>
+      </div>
+    </div>
+
+    <script src="/js/Layout.js"></script>
+  </body>
+</html>
