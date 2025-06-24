@@ -128,7 +128,7 @@ html {
 }
 
 main#content {
-  padding: 1rem;
+  padding: 0rem;
   overflow-y: auto;
   flex: 1;
   background: #ecf0f1;
