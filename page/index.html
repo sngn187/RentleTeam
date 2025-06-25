@@ -12,10 +12,12 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/dashbord.css" />
+    <link rel="stylesheet" href="./css/room.css" />
   </head>
   <body>
     <div class="dashboard">
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <h3>My Room <i class="fa-solid fa-sort"></i></h3>
         <nav>
           <ul>
@@ -53,15 +55,18 @@
       </aside>
       <div class="main">
         <header class="header" id="header">
+          <div id="colape">
+            <i class="fa-solid fa-forward"></i>
+          </div>
           <h3>
             <i class="fa-solid fa-heart-circle-bolt"></i>
             <span id="header_title"></span>
           </h3>
           <div class="header-actions">
             <h5>UserName</h5>
-              <button id="logout" class="btn btn-logout">
-                <i class="fa-solid fa-user"></i>
-              </button>
+            <button id="logout" class="btn btn-logout">
+              <i class="fa-solid fa-user"></i>
+            </button>
           </div>
         </header>
         <main id="content">
