@@ -141,12 +141,12 @@ function drawPieChart() {
   new Chart(ctx, {
     type: "pie",
     data: {
-      labels: ["Red", "Blue", "Yellow"],
+      labels: ["Yellow", "Blue", "Green"],
       datasets: [
         {
           label: "My Pie Chart",
-          data: [10, 20, 30],
-          backgroundColor: ["#ff6384", "#36a2eb", "#ffcd56"],
+          data: [20, 10, 30],
+          backgroundColor: ["#ffe100", "#1900ff", "#1aff00"],
           borderWidth: 1,
         },
       ],

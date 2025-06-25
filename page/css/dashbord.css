@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-image: linear-gradient(to bottom, #bb00ff, #ffe100);
 }
 
@@ -157,36 +157,6 @@
 }
 
 
-.maps {
-  padding: 0.5rem;
-  background-image: radial-gradient(circle at 50% 100%, #ffffff, #ffffff2a);
-  border-radius: 8px;
-  border: solid 1px #ffffffb7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-
-
-
-/* #piechart {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  background-image: radial-gradient(circle at 50% 100%, #ffffff, #ffffff2a);
-  border-radius: 8px;
-  border: solid 1px #ffffffb7;
-} */
-
-.maps div {
-  width: 100%;
-  height: auto;
-}
-
 @keyframes pulse {
   0% {
     transform: rotate(0deg);
@@ -209,10 +179,6 @@
   .layout {
     height: auto;
     padding: 1rem 0px;
-  }
-
-  .maps {
-    width: 90%;
   }
   .child {
     flex-direction: column;

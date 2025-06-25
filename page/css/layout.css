@@ -19,13 +19,13 @@ html {
 }
 
 .sidebar {
+  position: sticky !important;
   width: 250px;
   background-image: linear-gradient(to bottom, #771d90, #a1932b);
-  color: white;
+  color: #ffffff;
   padding: 0.5rem;
-  position: sticky;
-  top: 0;
-  height: auto;
+  top: 0 !important;
+  height: 100vh;
 }
 
 .sidebar h3 {
