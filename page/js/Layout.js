@@ -60,3 +60,132 @@ window.addEventListener("click", (e) => {
     sidebar.classList.remove("collapsed");
   }
 });
+
+// Load chart page via AJAX
+fetch("Dashbord.html")
+  .then((response) => response.text())
+  .then((html) => {
+    document.getElementById("content").innerHTML = html;
+
+    // Wait a short time or use MutationObserver
+    setTimeout(() => {
+      drawChart(); // call your chart logic
+      drawPieChart();
+      google.charts.setOnLoadCallback(drawRegionsMap);
+    }, 100);
+  });
+
+// Your chart drawing function
+function drawChart() {
+  const ctx = document.getElementById("myChart")?.getContext("2d");
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green",
+        "Purple",
+        "Orange",
+        "Pink",
+        "Cyan",
+        "Lime",
+        "Teal",
+      ],
+      datasets: [
+        {
+          label: "Votes",
+          data: [12, 19, 3, 5, 2, 3, 7, 8, 10, 15],
+          backgroundColor: [
+            "red",
+            "blue",
+            "yellow",
+            "green",
+            "purple",
+            "orange",
+            "pink",
+            "cyan",
+            "lime",
+            "teal",
+          ],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Axis Center Positioning",
+        },
+      },
+      scales: {
+        x: {
+          min: 0,
+          max: 100,
+        },
+        y: {
+          min: 0,
+          max: 20,
+        },
+      },
+    },
+  });
+}
+
+function drawPieChart() {
+  const ctx = document.getElementById("myPieChart")?.getContext("2d");
+  if (!ctx) return;
+
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Red", "Blue", "Yellow"],
+      datasets: [
+        {
+          label: "My Pie Chart",
+          data: [10, 20, 30],
+          backgroundColor: ["#ff6384", "#36a2eb", "#ffcd56"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+    },
+  });
+}
+
+google.charts.load("current", {
+  packages: ["geochart"],
+  // Note: mapsApiKey is only needed for some features like markers, not basic GeoChart
+  // 'mapsApiKey': 'YOUR_API_KEY' // optional
+});
+
+google.charts.setOnLoadCallback(drawRegionsMap);
+
+function drawRegionsMap() {
+  var data = google.visualization.arrayToDataTable([
+    ["Country", "Popularity"],
+    ["Germany", 200],
+    ["United States", 300],
+    ["Brazil", 400],
+    ["Cambodia", 500],
+    ["Canada", 600],
+    ["France", 700],
+  ]);
+
+  var options = {
+    colorAxis: { colors: ["#e0f3f8", "#08589e"] }, // blue gradient
+    backgroundColor: "#f8f8f8",
+    datalessRegionColor: "#eeeeee",
+    defaultColor: "#f5f5f5",
+  };
+
+  var chart = new google.visualization.GeoChart(
+    document.getElementById("regions_div")
+  );
+  chart.draw(data, options);
+}
