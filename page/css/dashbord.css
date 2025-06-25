@@ -164,7 +164,8 @@
 
 @media screen and (max-width: 768px) {
   .layout {
-    height: 100vh;
+    height: auto;
+    padding: 1rem 0px;
   }
   .child {
     flex-direction: column;
@@ -174,11 +175,11 @@
 
   .summary {
     width: 100%;
-    max-width: 300px;
+    height: 150px;
   }
 
   .summary div:first-child {
-    gap: 10px;
+    gap: 20px;
   }
 
   .summary div:first-child h1:first-child {
