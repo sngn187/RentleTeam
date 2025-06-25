@@ -66,12 +66,11 @@ fetch("Dashbord.html")
   .then((response) => response.text())
   .then((html) => {
     document.getElementById("content").innerHTML = html;
-
     // Wait a short time or use MutationObserver
     setTimeout(() => {
       drawChart(); // call your chart logic
       drawPieChart();
-      google.charts.setOnLoadCallback(drawRegionsMap);
+      drwMap(); // call your map logic
     }, 100);
   });
 
@@ -164,28 +163,14 @@ google.charts.load("current", {
   // 'mapsApiKey': 'YOUR_API_KEY' // optional
 });
 
-google.charts.setOnLoadCallback(drawRegionsMap);
+function drwMap() {
+  const map = L.map("map").setView([12.5, 105], 7);
+  L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    {
+      attribution: "&copy; CartoDB, OpenStreetMap",
+      maxZoom: 18,
+    }
+  ).addTo(map);
 
-function drawRegionsMap() {
-  var data = google.visualization.arrayToDataTable([
-    ["Country", "Popularity"],
-    ["Germany", 200],
-    ["United States", 300],
-    ["Brazil", 400],
-    ["Cambodia", 500],
-    ["Canada", 600],
-    ["France", 700],
-  ]);
-
-  var options = {
-    colorAxis: { colors: ["#e0f3f8", "#08589e"] }, // blue gradient
-    backgroundColor: "#f8f8f8",
-    datalessRegionColor: "#eeeeee",
-    defaultColor: "#f5f5f5",
-  };
-
-  var chart = new google.visualization.GeoChart(
-    document.getElementById("regions_div")
-  );
-  chart.draw(data, options);
 }

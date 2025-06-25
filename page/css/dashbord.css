@@ -153,19 +153,24 @@
   background-image: radial-gradient(circle at 50% 100%, #ffffff, #ffffff2a);
   border-radius: 8px;
   padding: 0.5rem;
-
   border: solid 1px #ffffffb7;
 }
 
 
-#regions_div {
-  width: 100% !important;
-  height: auto !important;
+.maps {
+  padding: 0.5rem;
   background-image: radial-gradient(circle at 50% 100%, #ffffff, #ffffff2a);
   border-radius: 8px;
-  padding: 0.5rem;
   border: solid 1px #ffffffb7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
+
+
+
+
 /* #piechart {
   display: flex;
   flex-direction: column;
@@ -176,6 +181,11 @@
   border-radius: 8px;
   border: solid 1px #ffffffb7;
 } */
+
+.maps div {
+  width: 100%;
+  height: auto;
+}
 
 @keyframes pulse {
   0% {
@@ -199,6 +209,10 @@
   .layout {
     height: auto;
     padding: 1rem 0px;
+  }
+
+  .maps {
+    width: 90%;
   }
   .child {
     flex-direction: column;
@@ -235,4 +249,5 @@
     width: 100% !important;
     height: 100% !important;
   }
+
 }
