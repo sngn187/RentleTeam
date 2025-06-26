@@ -23,6 +23,7 @@
   justify-content: center;
   width: 100%;
   gap: 20px;
+  
 }
 
 .summary {
@@ -130,12 +131,13 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  padding: 1rem;
+  padding: 0rem 1rem;
   gap: 10px;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 #myPieChart {
-
   width: 300px !important;
   height: 300px !important;
   padding: 0.5rem;
@@ -156,6 +158,48 @@
   border: solid 1px #ffffffb7;
 }
 
+
+.table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  overflow-y: auto;
+  background-image: radial-gradient(circle at 50% 100%, #ffffff, #ffffff2a);
+  border-radius: 8px;
+  padding: 1rem;
+  border: solid 1px #ffffffb7;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.table table th,
+.table table td {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 7px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.table table tbody tr {
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.table table tbody tr:hover {
+  background-color: #f8ffa7;
+}
 
 @keyframes pulse {
   0% {

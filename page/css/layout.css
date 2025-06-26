@@ -25,7 +25,7 @@ html {
   color: #ffffff;
   padding: 0.5rem;
   top: 0 !important;
-  height: 100vh;
+  height:auto;
 }
 
 .sidebar h3 {
@@ -165,7 +165,8 @@ main#content {
     display: flex;
     flex-direction: column;
     width: 250px;
-    position: fixed;
+    position: fixed !important;
+    height: 100vh;
     top: 0;
     left: 0;
     z-index: 1000;

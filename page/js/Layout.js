@@ -70,7 +70,6 @@ fetch("Dashbord.html")
     setTimeout(() => {
       drawChart(); // call your chart logic
       drawPieChart();
-      drwMap(); // call your map logic
     }, 100);
   });
 
@@ -157,20 +156,3 @@ function drawPieChart() {
   });
 }
 
-google.charts.load("current", {
-  packages: ["geochart"],
-  // Note: mapsApiKey is only needed for some features like markers, not basic GeoChart
-  // 'mapsApiKey': 'YOUR_API_KEY' // optional
-});
-
-function drwMap() {
-  const map = L.map("map").setView([12.5, 105], 7);
-  L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    {
-      attribution: "&copy; CartoDB, OpenStreetMap",
-      maxZoom: 18,
-    }
-  ).addTo(map);
-
-}
