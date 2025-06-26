@@ -73,34 +73,21 @@
         <!-- Place this in the HTML you load via AJAX -->
         <canvas id="myPieChart"></canvas>
       </div>
-      <div class="table">
-        <table id="dashboard-table">
+      <div class="love-table">
+        <table class="table">
           <thead>
             <tr>
-              <th>Customer Name</th>
-              <th>Room Type</th>
-              <th>Check-in Date</th>
-              <th>Check-out Date</th>
-              <th>Status</th>
+              <th>name</th>
+              <th>room</th>
+              <th>email</th>
+              <th>number</th>
+              <th>gender</th>
+              <th>date in</th>
+              <th>date out</th>
+              <th>status</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>John Doe</td>
-              <td>Deluxe Suite</td>
-              <td>2023-10-01</td>
-              <td>2023-10-05</td>
-              <td>Checked In</td>
-            </tr>
-            <tr>
-              <td>Jane Smith</td>
-              <td>Standard Room</td>
-              <td>2023-10-02</td>
-              <td>2023-10-06</td>
-              <td>Checked Out</td>
-            </tr>
-            <!-- Add more rows as needed -->
-          </tbody>
+          <tbody id="row1"></tbody>
         </table>
       </div>
     </div>

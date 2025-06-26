@@ -70,6 +70,7 @@ fetch("Dashbord.html")
     setTimeout(() => {
       drawChart(); // call your chart logic
       drawPieChart();
+      Getapi();
     }, 100);
   });
 
@@ -155,4 +156,41 @@ function drawPieChart() {
     },
   });
 }
+const apiUrl =
+  "https://script.google.com/macros/s/AKfycbw2ZJTNI-c7OwBMate84JHsq_fyb_d0PqEMSb85scdlHyJggU6ZA4U_AIuUGid8oxiy/exec";
+// Configure fetch options with CORS headers
+const fetchOptions = {
+  redirect: "follow",
+  Method: "GET",
+  headers: {
+    "Content-Type": "text/plain; charset=UTF-8",
+  },
+};
 
+function Getapi() {
+  const row1 = document.getElementById("row1");
+  row1.innerHTML = "";
+  fetch(`${apiUrl}?action=read&sheet=customer`, fetchOptions)
+    .then((res) => res.json())
+    .then((api) => {
+      for (let i = 0; i < api.data.length; i++) {
+        row1.innerHTML += `
+                        <tr>
+                <td>${api.data[i][0]}</td>
+                <td>${api.data[i][1]}</td>
+                <td>${api.data[i][2]}</td>
+                <td>${api.data[i][3]}</td>
+                <td>${api.data[i][4]}</td>
+                <td>${api.data[i][5]}</td>
+                <td>${api.data[i][6]}</td>
+                <td>
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModal" class='btn btn-primary' onclick="Editeuser(this)">Update </button>
+                  |
+                  <button class='btn btn-danger' onclick=DeleteData(${api.data[i][0]})> Delete </button></td>
+            </tr>
+                    `;
+      }
+
+      // console.log(api.data)
+    });
+}
