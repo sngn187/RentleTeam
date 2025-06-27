@@ -1,12 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-</head>
-<body>
-    <h1>somnang</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/dashbord.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="child">
+        <!-- Summary Card 1 -->
+        <div class="summary">
+          <div>
+            <h1>Total Revenue <span>View Details</span></h1>
+            <h1>$25,789</h1>
+            <div>
+              <p><i class="fas fa-circle"></i> Monthly Income</p>
+              <p><span>$12,456</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Card 2 -->
+        <div class="summary">
+          <div>
+            <h1>Total Rooms <span>View Details</span></h1>
+            <h1>1900</h1>
+            <div>
+              <p><i class="fas fa-circle"></i> Available Rooms</p>
+              <p><span>45</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Card 3 -->
+        <div class="summary">
+          <div>
+            <h1>Bookings <span>View Details</span></h1>
+            <h1>234</h1>
+            <div>
+              <p><i class="fas fa-circle"></i> Active Bookings</p>
+              <p><span>45</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Summary Card 4 -->
+        <div class="summary">
+          <div>
+            <h1>Total Customer<span>View Details</span></h1>
+            <h1>89</h1>
+            <div>
+              <p><i class="fas fa-circle"></i> Active Customers</p>
+              <p><span>67</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart">
+        <!-- Chart section is commented out in CSS but structure is maintained -->
+        <div id="piechart"></div>
+      </div>
+      <div class="chart">
+        <canvas id="myChart"></canvas>
+        <!-- Place this in the HTML you load via AJAX -->
+        <canvas id="myPieChart"></canvas>
+      </div>
+      <div class="love-table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>room</th>
+              <th>email</th>
+              <th>number</th>
+              <th>gender</th>
+              <th>date in</th>
+              <th>date out</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody id="row1"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./js/Layout.js"></script>
+  </body>
 </html>
