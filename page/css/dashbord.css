@@ -353,11 +353,12 @@
 
   .summary {
     width: 100%;
-    height: 150px;
+    height:auto;
+    padding: 15px 10px !important;
   }
 
   .summary div:first-child {
-    gap: 20px;
+    gap: 10px;
   }
 
   .summary div:first-child h1:first-child {
@@ -369,7 +370,7 @@
   }
 
   .summary div:first-child h1:nth-child(2) {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .chart {
     flex-direction: column;
