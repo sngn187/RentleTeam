@@ -26,6 +26,7 @@ html {
   padding: 0.5rem;
   top: 0 !important;
   height:auto;
+  min-height: 100vh;
 }
 
 .sidebar h3 {
