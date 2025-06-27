@@ -61,10 +61,10 @@ window.addEventListener("click", (e) => {
   }
 });
 
-setInterval(() => {
-  GetTotalRevenue();
-  console.log("111");
-}, 1000);
+// setInterval(() => {
+//   GetTotalRevenue();
+//   console.log("111");
+// }, 1000);
 
 // Load chart page via AJAX
 fetch("Dashbord.html")
