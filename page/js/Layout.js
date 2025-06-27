@@ -169,10 +169,17 @@ const fetchOptions = {
 
 function Getapi() {
   const row1 = document.getElementById("row1");
-  row1.innerHTML = "";
+  const loader = document.getElementById("loader-parent");
+  loader.innerHTML = "<div class=\"loader\"></div>";
   fetch(`${apiUrl}?action=read&sheet=customer`, fetchOptions)
     .then((res) => res.json())
     .then((api) => {
+      loader.innerHTML = "";
+      loader.style.display = "none";
+      if (!api || !api.data || api.data.length === 0) {
+        row1.innerHTML = "<tr><td colspan='8'>No data available</td></tr>";
+        return;
+      }
       for (let i = 0; i < api.data.length; i++) {
         let date = new Date(api.data[i][5]);
         let date1 = new Date(api.data[i][6]);
