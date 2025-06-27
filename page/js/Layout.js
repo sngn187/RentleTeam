@@ -61,6 +61,11 @@ window.addEventListener("click", (e) => {
   }
 });
 
+setInterval(() => {
+  GetTotalRevenue();
+  console.log("111");
+}, 1000);
+
 // Load chart page via AJAX
 fetch("Dashbord.html")
   .then((response) => response.text())
@@ -71,6 +76,7 @@ fetch("Dashbord.html")
       drawChart(); // call your chart logic
       drawPieChart();
       Getapi();
+      GetTotalRevenue();
     }, 100);
   });
 
@@ -167,10 +173,31 @@ const fetchOptions = {
   },
 };
 
+function GetTotalRevenue() {
+  const revenue = document.getElementById("revenue");
+  let totalRevenue = 0;
+  fetch(`${apiUrl}?action=read&sheet=recipt`, fetchOptions)
+    .then((res) => res.json())
+    .then((api) => {
+      for (let i = 0; i < api.data.length; i++) {
+        if (api.data[i][7] == "No") {
+          continue;
+        } else {
+          totalRevenue += parseFloat(api.data[i][6]) || 0;
+        }
+      }
+      revenue.classList.remove("loader1");
+      revenue.innerHTML = `$${totalRevenue.toFixed(2)}`;
+    })
+    .catch((err) => {
+      console.error("Error fetching total revenue:", err);
+    });
+}
+
 function Getapi() {
   const row1 = document.getElementById("row1");
   const loader = document.getElementById("loader-parent");
-  loader.innerHTML = "<div class=\"loader\"></div>";
+  loader.innerHTML = '<div class="loader"></div>';
   fetch(`${apiUrl}?action=read&sheet=customer`, fetchOptions)
     .then((res) => res.json())
     .then((api) => {
