@@ -174,6 +174,16 @@ function Getapi() {
     .then((res) => res.json())
     .then((api) => {
       for (let i = 0; i < api.data.length; i++) {
+        let date = new Date(api.data[i][5]);
+        let date1 = new Date(api.data[i][6]);
+        let year = date.getFullYear();
+        let month = String(date.getMonth() + 1).padStart(2, "0"); // +1 because month is 0-based
+        let day = String(date.getDate()).padStart(2, "0");
+        let formatted = `${year}/${month}/${day}`;
+        let year1 = date1.getFullYear();
+        let month1 = String(date1.getMonth() + 1).padStart(2, "0"); // +1 because month is 0-based
+        let day1 = String(date1.getDate()).padStart(2, "0");
+        let formatted1 = `${year1}/${month1}/${day1}`;
         row1.innerHTML += `
                         <tr>
                 <td>${api.data[i][0]}</td>
@@ -181,12 +191,9 @@ function Getapi() {
                 <td>${api.data[i][2]}</td>
                 <td>${api.data[i][3]}</td>
                 <td>${api.data[i][4]}</td>
-                <td>${api.data[i][5]}</td>
-                <td>${api.data[i][6]}</td>
-                <td>
-                  <button data-bs-toggle="modal" data-bs-target="#exampleModal" class='btn btn-primary' onclick="Editeuser(this)">Update </button>
-                  |
-                  <button class='btn btn-danger' onclick=DeleteData(${api.data[i][0]})> Delete </button></td>
+                <td>${formatted}</td>
+                <td>${formatted1}</td>
+                <td>${api.data[i][7]}</td>
             </tr>
                     `;
       }
