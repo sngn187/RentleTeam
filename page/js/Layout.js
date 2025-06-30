@@ -87,6 +87,7 @@ fetch("Dashbord.html")
 // Your chart drawing function
 function drawChart() {
   const ctx = document.getElementById("myChart")?.getContext("2d");
+  fetch(`${apiUrl}?action=read&sheet=`)
   if (!ctx) return;
   new Chart(ctx, {
     type: "bar",
