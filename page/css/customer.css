@@ -1,0 +1,33 @@
+.h1 button{
+   margin: 30px;
+   padding: 12px;
+   color: rgb(116, 3, 103);
+
+      
+}
+.h2{
+   margin-left: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   
+}
+tr{
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+td{
+   margin:auto;
+   padding: 50px;
+   font-weight: bold;
+}
+table{
+
+   width: 100%;
+   margin: auto;
+}
