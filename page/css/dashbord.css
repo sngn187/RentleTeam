@@ -199,6 +199,129 @@
   background-color: #f8ffa7;
 }
 
+/* HTML: <div class="loader"></div> */
+.loader {
+  position: absolute;
+  z-index: 99;
+  width: 40px;
+  height: 40px;
+  color: #ff32d6;
+  background:
+    conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+    conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+    conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+    conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);
+  animation: l4 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+
+.loader-pareant {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#loader-parent::after {
+  width: 50px;
+  height: 1000px;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 88;
+  background-image: radial-gradient(circle at 50% 100%, #ffffff, #ffffff2a);
+  backdrop-filter: blur(10px);
+  transform: rotate(-45deg);
+  animation: loader 1.5s infinite linear;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader1 {
+  --w:10ch;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  letter-spacing: var(--w);
+  width:var(--w);
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 
+    calc(-1*var(--w)) 0, 
+    calc(-2*var(--w)) 0, 
+    calc(-3*var(--w)) 0, 
+    calc(-4*var(--w)) 0,
+    calc(-5*var(--w)) 0, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0, 
+    calc(-8*var(--w)) 0, 
+    calc(-9*var(--w)) 0;
+  animation: l16 2s infinite;
+}
+.loader1:before {
+  content:"Loading...";
+}
+@keyframes l16 {
+  20% {text-shadow: 
+    calc(-1*var(--w)) 0, 
+    calc(-2*var(--w)) 0 red, 
+    calc(-3*var(--w)) 0, 
+    calc(-4*var(--w)) 0 #ffa516,
+    calc(-5*var(--w)) 0 #63fff4, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0, 
+    calc(-8*var(--w)) 0 green, 
+    calc(-9*var(--w)) 0;}
+  40% {text-shadow: 
+    calc(-1*var(--w)) 0, 
+    calc(-2*var(--w)) 0 red, 
+    calc(-3*var(--w)) 0 #e945e9, 
+    calc(-4*var(--w)) 0,
+    calc(-5*var(--w)) 0 green, 
+    calc(-6*var(--w)) 0 orange, 
+    calc(-7*var(--w)) 0, 
+    calc(-8*var(--w)) 0 green, 
+    calc(-9*var(--w)) 0;}
+  60% {text-shadow: 
+    calc(-1*var(--w)) 0 lightblue, 
+    calc(-2*var(--w)) 0, 
+    calc(-3*var(--w)) 0 #e945e9, 
+    calc(-4*var(--w)) 0,
+    calc(-5*var(--w)) 0 green, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0 yellow, 
+    calc(-8*var(--w)) 0 #ffa516, 
+    calc(-9*var(--w)) 0 red;}
+  80% {text-shadow: 
+    calc(-1*var(--w)) 0 lightblue, 
+    calc(-2*var(--w)) 0 yellow, 
+    calc(-3*var(--w)) 0 #63fff4, 
+    calc(-4*var(--w)) 0 #ffa516,
+    calc(-5*var(--w)) 0 red, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0 grey, 
+    calc(-8*var(--w)) 0 #63fff4, 
+    calc(-9*var(--w)) 0 ;}
+}
+
+@keyframes loader {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: -500px;
+    left: 100%;
+  }
+}
+
+@keyframes l4 {
+   50%  {width:60px;height: 60px;transform: rotate(180deg)}
+   100% {transform: rotate(360deg)}
+}
+
 @keyframes pulse {
   0% {
     transform: rotate(0deg);
@@ -230,11 +353,12 @@
 
   .summary {
     width: 100%;
-    height: 150px;
+    height:auto;
+    padding: 15px 10px !important;
   }
 
   .summary div:first-child {
-    gap: 20px;
+    gap: 10px;
   }
 
   .summary div:first-child h1:first-child {
@@ -246,7 +370,7 @@
   }
 
   .summary div:first-child h1:nth-child(2) {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .chart {
     flex-direction: column;
@@ -291,4 +415,17 @@
   .table tbody tr:hover {
     background-color: #f8ffa7;
   }
+  .loader {
+  position: absolute;
+  z-index: 99;
+  width: 20px !important;
+  height: 20px !important;
+  color: #ff32d6;
+  background:
+    conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+    conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+    conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+    conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);
+  animation: l4 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
 }

@@ -156,6 +156,11 @@ main#content {
     align-items: center;
     padding: 10px;
     background-color: #6e007f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
   }
 
   .header h5 {
@@ -187,6 +192,10 @@ main#content {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.204);
     cursor: pointer;
   }
+  main#content {
+  padding: 0rem;
+  padding-top: 40px;
+}
 }
 
 @keyframes slideIn {
