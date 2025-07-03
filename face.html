@@ -11,6 +11,7 @@
       <h1>SCAN YOUR FACE</h1>
       <div id="webcam-container"></div>
       <div id="status">scan now</div>
+      <div id="label-container"></div>
       <button type="button" onclick="init()" class="btn-scan">Start</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -22,9 +23,9 @@
         init();
       });
       // the link to your model provided by Teachable Machine export panel
-      const URL = "https://teachablemachine.withgoogle.com/models/a3PsEG4-n/";
+      const URL = "https://teachablemachine.withgoogle.com/models/UwOeh9TqP/";
 
-      let model, webcam, maxPredictions;
+      let model, webcam, labelContainer, maxPredictions;
 
       // Load the image model and setup the webcam
       async function init() {
@@ -44,6 +45,12 @@
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+          // and class labels
+          labelContainer.appendChild(document.createElement("div"));
+        }
       }
 
       async function loop() {
@@ -56,12 +63,14 @@
       async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {}
         for (let i = 0; i < maxPredictions; i++) {
           const classPrediction =
             prediction[i].className +
             ": " +
             prediction[i].probability.toFixed(2);
-          if (classPrediction === "nang: 1.00") {
+          labelContainer.childNodes[i].innerHTML = classPrediction;
+          if (0.8 <prediction[0].probability.toFixed(2) <1) {
             document.getElementById("status").innerHTML = "correct ✅";
             setInterval(() => {
               window.location.href = "./page/";

@@ -49,7 +49,7 @@ body::before {
 }
 
 #webcam-container {
-    background-image: url(./img/face-scan.gif);
+    background-color: white;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
