@@ -137,6 +137,12 @@ button:hover {
   color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+ .maincontainer {
+  width: 350px;
+ }
+}
+
 .face {
   position: absolute;
 }
