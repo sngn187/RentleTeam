@@ -38,11 +38,11 @@ body {
   z-index: 999;
   /*   height:440px */
 }
-form {
+.login-container {
   display: flex;
   flex-direction: column;
 }
-form h2 {
+.login-container h2 {
   font-family: "Azonix";
   font-size: 2rem;
   color: white;
