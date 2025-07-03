@@ -10,6 +10,7 @@
     <div class="box">
       <h1>SCAN YOUR FACE</h1>
       <div id="webcam-container"></div>
+      <div id="status">scan now</div>
       <button type="button" onclick="init()" class="btn-scan">Start</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -61,7 +62,10 @@
             ": " +
             prediction[i].probability.toFixed(2);
           if (classPrediction === "nang: 1.00") {
-            window.location.href = "./page/";
+            document.getElementById("status").innerHTML = "correct ✅";
+            setInterval(() => {
+              window.location.href = "./page/";
+            }, 2000);
           }
         }
       }
