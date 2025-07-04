@@ -25,9 +25,8 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
-  padding: 2.5rem 2rem 2rem 2rem;
-  max-width: 350px;
-  width: 100%;
+  padding: 2rem 1rem 1rem 1rem;
+  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +45,7 @@ body {
 }
 
 .signup input {
+    width: 90%;
   padding: 0.6rem 1rem;
   border-radius: 8px;
   border: 1.5px solid pink;
@@ -80,4 +80,11 @@ body {
   background: #62ff00;
   color: black;
   text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 768px) {
+ .signup {
+  width: 350px;
+ }
 }
