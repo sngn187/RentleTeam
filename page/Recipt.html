@@ -1,59 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hotel Receipt</title>
     <link rel="stylesheet" href="./css/recipt.css">
 </head>
-
 <body>
-    <div class="header1">
-        <h1>happyFamily's Hotel</h1>
-        <p>
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Borey Ramchek</span>
-        </p>
-        <p>
-            <i class="fa-solid fa-phone"></i>
-            <span>086499893</span>
-        </p>
-
-        <p>
-            <i class="fa-solid fa-envelope"></i>
-            <span>Lounbora932@gmail.com</span>
-        </p>
+    <div class="receipt">
+        <h1>Happy_Family's Hotel</h1>
+        <p class="address">123 Borey RamChek, Battambang, Cambodia</p>
+        <p class="contact">Phone: +855 12 345 678 | Email: info@hotelparadise.com</p>
         <hr>
-        <div class="header2">
-            <div class="body">
-                <p>Paid By</p>
-                <p>Lorem</p>
-                <p>xxxxxxx@gmaul.com</p>
-            </div>
-            <div class="reciept">
-                <h1>RECEIPT</h1>
-            </div>
+
+        <div class="details">
+            <p><strong>Receipt No:</strong> #20250626</p>
+            <p><strong>Date:</strong> June 26, 2025</p>
+            <p><strong>Guest Name:</strong> Loun Bora</p>
+            <p><strong>Room Number:</strong> 405</p>
+            <p><strong>Check-in:</strong> June 24, 2025</p>
+            <p><strong>Check-out:</strong> June 26, 2025</p>
         </div>
-        <div class="header3">
-            <h1>Booking Details</h1>
-            Check in  <input type="date">
-            <br>
-            Check Out <input type="date">
-            <br>
-            Guests <input type="text" placeholder="Put number of guests">
-            <br>
-            Unit <input type="text" placeholder="Put type of room">
-            <input type="submit">
-        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Deluxe Room (2 Nights)</td>
+                    <td>2</td>
+                    <td>$60</td>
+                    <td>$120</td>
+                </tr>
+                <tr>
+                    <td>Room Service</td>
+                    <td>1</td>
+                    <td>$25</td>
+                    <td>$25</td>
+                </tr>
+                <tr>
+                    <td id="laundry">Laundry</td>
+                    <td>1</td>
+                    <td>$10</td>
+                    <td>$10</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Subtotal</td>
+                    <td>$155</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Tax (10%)</td>
+                    <td>$15.50</td>
+                </tr>
+                <tr class="total">
+                    <td colspan="3"><strong>Total</strong></td>
+                    <td><strong>$170.50</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <p class="thankyou">Thank you for staying with us!</p>
     </div>
+    <script>
+        let url=("https://script.google.com/macros/s/AKfycbzsXRG8cPQw03MNsqYdUcBFEnXiWaaoL6qv8IaPujbL-5rKPByHMm1WmP5DadE7fgFl/exec");
+        let laundry = document.getElementById("laundry");
+        laundry.addEventListener("click", function() {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.laundry) {
+                        alert("Laundry service is available.");
+                    } else {
+                        alert("Laundry service is not available.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    alert("An error occurred while checking laundry service.");
+                });
+        });
 
+
+    </script>
 </body>
+</html> 
 
-</html>

@@ -1,38 +1,77 @@
-.header1 {
-    background-image: linear-gradient(90deg, #d6cd9c, #50e3c2);
-    width: 500px;
+
+
+.receipt {
+    max-width: 600px;
     margin: auto;
-    color: white;
-    padding: 20px;
+    background: rgb(211, 208, 208);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
     text-align: center;
-    font-size: 24px;
-    font-family: 'Arial', sans-serif;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-p i {
-    font-size: 20px;
-    color: #ff0000;
+.address, .contact, .thankyou {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
 }
 
-p span {
-    color: #4a90e2;
+.details p {
+    margin: 4px 0;
 }
 
-.header2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-.header3{
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
     
 }
-.header3 input {
 
+table th, table td {
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-image: linear-gradient(90deg, #f36755, #608d83);
-    font-size: 16px;
-    margin: 5px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tfoot td {
+    font-weight: bold;
+}
+
+.total td {
+    background-color: #f0f0f0;
+}
+.receipt h1{
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #371dc7, #feb47b);
+    font-size: 2em;
+    margin-bottom: 10px;
+
+    
+}
+thead{
+    background-color: #4e4c59ac;
+    color: white;
+}
+tbody{
+    background-image:linear-gradient(90deg,blue,red);
+}
+tfoot{
+    background-image: linear-gradient(90deg,rgb(82, 198, 158),red);
+    color: white;
+}
+.total{
+    color:black;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #f0f0f0;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
 }
