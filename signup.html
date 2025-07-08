@@ -34,16 +34,17 @@
           },
         };
         fetch(
-          "https://script.google.com/macros/s/AKfycbww0AX4SuPSkagKqDiPEjmJSnAo0YHTx_WaVvygqmqPuGs0E_wSrwj55BGF_6BemZVa/exec?action=signup&sheet=user",
+          "https://script.google.com/macros/s/AKfycbzsXRG8cPQw03MNsqYdUcBFEnXiWaaoL6qv8IaPujbL-5rKPByHMm1WmP5DadE7fgFl/exec?action=signup&sheet=user",
           fetchOptions
         )
           .then((response) => response.json())
           .then((data) => {
-            if (data.success) {
+            if (data =="success") {
               document.getElementById("result").textContent =
                 "Sign up successful!";
+                window.location.href = "./index.html"
             } else {
-              document.getElementById("result").textContent = data.message;
+              document.getElementById("result").textContent = data;
             }
           })
           .catch((err) => {
