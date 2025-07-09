@@ -23,7 +23,7 @@
         init();
       });
       // the link to your model provided by Teachable Machine export panel
-      const URL = "https://teachablemachine.withgoogle.com/models/UwOeh9TqP/";
+      const URL = "https://teachablemachine.withgoogle.com/models/-ZBgWSLEa/";
 
       let model, webcam, labelContainer, maxPredictions;
 
@@ -73,8 +73,8 @@
           //console.log(prediction[i].className);
           //labelContainer.childNodes[i].innerHTML = classPrediction;
             if (
-              prediction[i].className == "nang" &&
-              prediction[i].probability.toFixed(2) > 0.8
+              prediction[i].className == "nang" || prediction[i].className == "vireak" &&
+              prediction[i].probability.toFixed(2) > 0.6 
             ) {
               document.getElementById("status").innerHTML = "correct ✅";
               setInterval(() => {
