@@ -136,14 +136,7 @@ button:hover {
   color: #fff;
 }
 
-@media screen and (max-width: 768px) {
-  .maincontainer {
-    width: 350px;
-  }
-  .box {
-    width: 350px;
-  }
-}
+
 
 .face {
   position: absolute;
@@ -276,4 +269,13 @@ button:hover {
 
 #status {
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .maincontainer {
+    width: 350px;
+  }
+  .box {
+    width: 350px;
+  }
 }
