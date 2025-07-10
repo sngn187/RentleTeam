@@ -277,5 +277,6 @@ button:hover {
   }
   .box {
     width: 350px;
+    padding: 0;
   }
 }
