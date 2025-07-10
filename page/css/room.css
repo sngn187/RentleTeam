@@ -143,7 +143,7 @@
     }
 
     .room-card:hover {
-      box-shadow: 10px 10px 12px #bebebe,-10px -10px 12px rgb(255, 255, 255);
+      box-shadow: 10px 10px 12px #cf4ad6,-10px -10px 12px rgb(226, 45, 139);
     }
 
     .room_vireak01::before {
