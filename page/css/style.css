@@ -173,12 +173,21 @@ button:hover {
   font-size: 14px;
   text-transform: uppercase;
   font-family: Verdana;
+  background-color: red;
+  color: white;
 }
 
 .btn-scan:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: greenyellow;
+  color: black;
+}
+
+.btn-scan:hover {
+  background-color: blue;
+  color: white;
 }
 
 #webcam-container {
