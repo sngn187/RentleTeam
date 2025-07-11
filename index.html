@@ -10,8 +10,16 @@
   <body>
     <div class="box" id="box">
       <h1>SCAN YOUR FACE</h1>
-      <div id="webcam-container"></div>
-      <div id="status">Click Start 👇</div>
+      <div id="webcam-container">
+        <div class="container">
+          <div class="cloud">
+            <h2>SCAN FACE</h2>
+          </div>
+        </div>
+      </div>
+      <div id="status">
+        <img src="./page/css/img/scanface.gif" alt="scan" width="50px" />
+      </div>
       <div id="label-container"></div>
       <div class="camera_btn">
         <button type="button" onclick="HideBox()" class="btn-scan">
@@ -27,6 +35,37 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script type="text/javascript">
+      function randomText() {
+        var text = "ណាង";
+        letters = text[Math.floor(Math.random() * text.length)];
+        return letters;
+      }
+
+      function rain() {
+        let cloud = document.querySelector(".cloud");
+        let e = document.createElement("div");
+        e.classList.add("drop");
+        cloud.appendChild(e);
+
+        let left = Math.floor(Math.random() * 300);
+        let size = Math.random() * 1.5;
+        let duration = Math.random() * 1;
+
+        e.innerText = randomText();
+        e.style.left = left + "px";
+        e.style.fontSize = 10 + size + "px";
+        e.style.animationDuration = 1 + duration + "s";
+
+        setTimeout(function () {
+          cloud.removeChild(e);
+        }, 2000);
+      }
+
+      setInterval(function () {
+        rain();
+      }, 20);
+
+      // The cloud effect completes here.
       const showBox = document.getElementById("box");
       function ShowBox() {
         showBox.style.display = "flex";
@@ -96,17 +135,17 @@
             (prediction[i].className == "vireak" &&
               prediction[i].probability.toFixed(2) > 0.6)
           ) {
-            document.getElementById("status").innerHTML = `DONE ✅`;
+            document.getElementById("status").innerHTML =
+              `<img src="./page/css/img/shield.gif" alt="scan" width="50px">`;
             setInterval(() => {
               window.location.href = "./page/";
-            }, 1000);
+            }, 5000);
           }
         }
       }
     </script>
-    
+
     <div class="maincontainer">
-      
       <div class="login-container">
         <h2>Login</h2>
         <div class="input-field">
@@ -124,7 +163,15 @@
             <p>Remember me</p>
           </label>
 
-          <a href="#" onclick="ShowBox()"><p>scan face</p></a>
+          <a href="#" onclick="ShowBox()"
+            ><p>
+              scan face
+              <img
+                src="./page/css/img/scanface.gif"
+                alt="scan"
+                width="20px"
+              /></p
+          ></a>
         </div>
 
         <button onclick="login()">Log In</button>
