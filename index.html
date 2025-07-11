@@ -35,36 +35,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script type="text/javascript">
-      function randomText() {
-        var text = "ណាង";
-        letters = text[Math.floor(Math.random() * text.length)];
-        return letters;
-      }
-
-      function rain() {
-        let cloud = document.querySelector(".cloud");
-        let e = document.createElement("div");
-        e.classList.add("drop");
-        cloud.appendChild(e);
-
-        let left = Math.floor(Math.random() * 300);
-        let size = Math.random() * 1.5;
-        let duration = Math.random() * 1;
-
-        e.innerText = randomText();
-        e.style.left = left + "px";
-        e.style.fontSize = 10 + size + "px";
-        e.style.animationDuration = 1 + duration + "s";
-
-        setTimeout(function () {
-          cloud.removeChild(e);
-        }, 2000);
-      }
-
-      setInterval(function () {
-        rain();
-      }, 20);
-
       // The cloud effect completes here.
       const showBox = document.getElementById("box");
       function ShowBox() {
@@ -116,30 +86,25 @@
         await predict();
         window.requestAnimationFrame(loop);
       }
-
       // run the webcam image through the image model
       async function predict() {
-        // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {}
+        // predict can take in an image, video or canvas html element
+        //for (let i = 0; i < maxPredictions; i++) {}
         for (let i = 0; i < maxPredictions; i++) {
-          //const classPrediction =
-          //  prediction[i].className +
-          //  ": " +
-          //  prediction[i].probability.toFixed(2);
-          //console.log(prediction[i].probability.toFixed(2));
-          //console.log(prediction[i].className);
-          //labelContainer.childNodes[i].innerHTML = classPrediction;
+          console.log(prediction[i].className);
+          console.log(prediction[i + 1].className);
           if (
-            prediction[i].className == "nang" ||
-            (prediction[i].className == "vireak" &&
-              prediction[i].probability.toFixed(2) > 0.6)
+            (prediction[i].className == "nang" &&
+              prediction[i].probability.toFixed(2) > 0.7) ||
+            (prediction[i + 1].className == "vireak" &&
+              prediction[i + 1].probability.toFixed(2) > 0.7)
           ) {
             document.getElementById("status").innerHTML =
               `<img src="./page/css/img/shield.gif" alt="scan" width="50px">`;
             setInterval(() => {
               window.location.href = "./page/";
-            }, 5000);
+            }, 3000);
           }
         }
       }
@@ -163,15 +128,7 @@
             <p>Remember me</p>
           </label>
 
-          <a href="#" onclick="ShowBox()"
-            ><p>
-              scan face
-              <img
-                src="./page/css/img/scanface.gif"
-                alt="scan"
-                width="20px"
-              /></p
-          ></a>
+          <a href="#" onclick="ShowBox()"><p>scan face</p></a>
         </div>
 
         <button onclick="login()">Log In</button>
