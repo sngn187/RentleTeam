@@ -86,5 +86,16 @@
     </div>
     <script src="./js/Layout.js"></script>
     <script src="./js/dashboard.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let email =
+          localStorage.getItem("user_email") ||
+          sessionStorage.getItem("user_email");
+        if (email && email.includes("@")) {
+          document.querySelector(".header-actions h5").textContent =
+            email.split("@")[0];
+        }
+      });
+    </script>
   </body>
 </html>

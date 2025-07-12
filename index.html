@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./page/css/style.css" />
-    <script defer src="./page/js/main.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -131,7 +130,7 @@
           <a href="#" onclick="ShowBox()"><p>scan face</p></a>
         </div>
 
-        <button onclick="login()">Log In</button>
+        <button onclick="login()" id="login">Log In</button>
         <p
           style="
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -151,13 +150,15 @@
     </div>
 
     <script>
-      function redirectToPage(page) {
+      function redirectToPage(email,page) {
+        localStorage.setItem("user_email", email);
         window.location.href = page;
       }
       function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         const result = document.getElementById("res");
+        result.innerHTML = "";
         const fetchOptions = {
           redirect: "follow",
           method: "POST",
@@ -170,23 +171,30 @@
             "Content-Type": "text/plain; charset=UTF-8",
           },
         };
-        fetch(
-          "https://script.google.com/macros/s/AKfycbzsXRG8cPQw03MNsqYdUcBFEnXiWaaoL6qv8IaPujbL-5rKPByHMm1WmP5DadE7fgFl/exec?action=login&sheet=user",
-          fetchOptions
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data == "page") {
-              redirectToPage(data);
-            } else {
-              result.innerHTML = data;
-            }
-          })
-          .catch((err) => {
-            console.error(err);
-            alert("Error logging in.");
-          });
+        if (email == "" || password == "") {
+          result.innerHTML = "sir please respect us 😤";
+        } else {
+          document.getElementById("login").innerHTML = "loading...";
+          fetch(
+            "https://script.google.com/macros/s/AKfycbzsXRG8cPQw03MNsqYdUcBFEnXiWaaoL6qv8IaPujbL-5rKPByHMm1WmP5DadE7fgFl/exec?action=login&sheet=user",
+            fetchOptions
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data == "page") {
+                redirectToPage(email,data);
+              } else {
+                document.getElementById("login").innerHTML = "Log In";
+
+                result.innerHTML = data;
+              }
+            })
+            .catch((err) => {
+              console.error(err);
+              alert("Error logging in.");
+            });
+        }
       }
     </script>
   </body>

@@ -87,38 +87,42 @@ fetch("Dashbord.html")
 // Your chart drawing function
 function drawChart() {
   const ctx = document.getElementById("myChart")?.getContext("2d");
-  fetch(`${apiUrl}?action=read&sheet=`)
+  fetch(`${apiUrl}?action=read&sheet=`);
   if (!ctx) return;
   new Chart(ctx, {
     type: "bar",
     data: {
       labels: [
-        "Red",
-        "Blue",
-        "Yellow",
-        "Green",
-        "Purple",
-        "Orange",
-        "Pink",
-        "Cyan",
-        "Lime",
-        "Teal",
+        "០១",
+        "០២",
+        "០៣",
+        "០៤",
+        "០៥",
+        "០៦",
+        "០៧",
+        "០៨",
+        "០៩",
+        "១០",
+        "១១",
+        "១២",
       ],
       datasets: [
         {
           label: "Votes",
-          data: [12, 19, 3, 5, 2, 3, 7, 8, 10, 15],
+          data: [12, 19, 3, 5, 2, 3, 7, 8, 10, 15, 5, 12],
           backgroundColor: [
-            "red",
-            "blue",
-            "yellow",
-            "green",
-            "purple",
-            "orange",
-            "pink",
-            "cyan",
-            "lime",
-            "teal",
+            "#1d0031ff",
+            "#9900ffff",
+            "#1d0031ff",
+            "#9900ffff",
+            "#1d0031ff",
+            "#9900ffff",
+            "#1d0031ff",
+            "#9900ffff",
+            "#1d0031ff",
+            "#9900ffff",
+            "#1d0031ff",
+            "#9900ffff",
           ],
         },
       ],
@@ -152,12 +156,12 @@ function drawPieChart() {
   new Chart(ctx, {
     type: "pie",
     data: {
-      labels: ["Yellow", "Blue", "Green"],
+      labels: ["ចំណូល", "ចំណាយ", "ចំនេញ"],
       datasets: [
         {
           label: "My Pie Chart",
           data: [20, 10, 30],
-          backgroundColor: ["#ffe100", "#1900ff", "#1aff00"],
+          backgroundColor: ["#9d00ffff", "#3b0053ff", "#1d0031ff"],
           borderWidth: 1,
         },
       ],
@@ -246,24 +250,24 @@ function getMonthlyIncome() {
   fetch(`${apiUrl}?action=read&sheet=recipt`, fetchOptions)
     .then((res) => res.json())
     .then((api) => {
-        let total = 0;
-        const currentDate = new Date();
-        for (let i = 0; i < api.data.length; i++) {
-          const element = api.data[i];
-          const date = new Date(element[1]);
-          if (
-            element[7] === "Yes" &&
-            date.getFullYear() === currentDate.getFullYear() &&
-            date.getMonth() === currentDate.getMonth()
-          ) {
-            console.log(element[7]);
-            total += parseFloat(element[6]) || 0;
-          } else {
-            console.log("continue");
-            continue;
-          }
+      let total = 0;
+      const currentDate = new Date();
+      for (let i = 0; i < api.data.length; i++) {
+        const element = api.data[i];
+        const date = new Date(element[1]);
+        if (
+          element[7] === "Yes" &&
+          date.getFullYear() === currentDate.getFullYear() &&
+          date.getMonth() === currentDate.getMonth()
+        ) {
+          console.log(element[7]);
+          total += parseFloat(element[6]) || 0;
+        } else {
+          console.log("continue");
+          continue;
         }
-        monthlyIncome.innerHTML = `$${total.toFixed(2)}`;
+      }
+      monthlyIncome.innerHTML = `$${total.toFixed(2)}`;
     })
     .catch((err) => {
       console.error("Error fetching monthly income:", err);
@@ -298,8 +302,7 @@ function getTotalCustomer() {
     });
 }
 
-
-function getTotalBookings(){
+function getTotalBookings() {
   const totalBookings = document.getElementById("totalBookings");
   totalBookings.classList.add("loader1");
   const activeBookings = document.getElementById("activeBookings");

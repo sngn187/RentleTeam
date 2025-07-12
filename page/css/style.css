@@ -383,6 +383,7 @@ button:hover {
     content: '';
     position: absolute;
     top: -90px;
+    color: #0a003c;
     left: 40%;
     transform: translateX(-50%);
     border-radius: 100px;
